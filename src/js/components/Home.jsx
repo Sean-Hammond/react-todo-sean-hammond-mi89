@@ -11,7 +11,7 @@ const Home = () => {
   // Adds the user's typed task to the array of tasks
   function addTask() {
     if (newTask.trim() !== "") {
-      setTasks([...tasks, newTask + " ".repeat(tasks.length)]); // Each task has unique number of spaces. Clever way I came up with to ensure duplicates are not deleted.
+      setTasks([...tasks, newTask]); // Each task has unique number of spaces. Clever way I came up with to ensure duplicates are not deleted.
     }
     setNewTask("");
   }
