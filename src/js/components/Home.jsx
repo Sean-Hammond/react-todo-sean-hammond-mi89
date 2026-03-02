@@ -94,7 +94,9 @@ const Home = () => {
         <p>
           <strong>Created by Sean Hammond</strong>
         </p>
-        <p>Mentors: Alex Ayala and Thomas Brito</p>
+        <p>
+          Mentors: Ryan Castanier, Alex Ayala-Palacin, Thomas Brito-Bronfield
+        </p>
         <p>
           This and many other projects are built by students as part of the
           4Geeks Academy Coding Bootcamp by Alejandro Sanchez and many other
