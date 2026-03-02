@@ -89,11 +89,7 @@ const Home = () => {
         <p>
           Mentors: Ryan Castanier, Alex Ayala-Palacin, Thomas Brito-Bronfield
         </p>
-        <p>
-          This and many other projects are built by students as part of the
-          4Geeks Academy Coding Bootcamp by Alejandro Sanchez and many other
-          contributors.
-        </p>
+        <p>Code template by: Alejandro Sanchez and 4Geeks Academy</p>
       </footer>
     </div>
   );
