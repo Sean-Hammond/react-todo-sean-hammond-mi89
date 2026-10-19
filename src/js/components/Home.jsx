@@ -6,20 +6,32 @@ const Home = () => {
   // New task is empty string until user types and submits it to the tasks array
   const [newTask, setNewTask] = useState("");
 
+  // Check whether task list is already in localStorage and set it to an empty array if not
+  if (localStorage.getItem("tasks") === null) {
+    localStorage.setItem("tasks", "[]");
+  }
+
+  // const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
+
   // The array of tasks
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
+  console.log("local storage tasks: ", localStorage.getItem("tasks"));
 
   // Adds the user's typed task to the array of tasks
   function addTask() {
     if (newTask.trim() !== "") {
-      setTasks([...tasks, newTask]);
+      const updatedTaskList = [...tasks, newTask];
+      setTasks(updatedTaskList);
+      localStorage.setItem("tasks", JSON.stringify(updatedTaskList));
     }
     setNewTask("");
   }
 
   const deleteTask = (indexToDelete) => {
-    setTasks(tasks.toSpliced(indexToDelete, 1));
+    const updatedTaskList = tasks.toSpliced(indexToDelete, 1);
+    setTasks(updatedTaskList);
     console.log("Index being deleted:", indexToDelete);
+    localStorage.setItem("tasks", JSON.stringify(updatedTaskList));
   };
 
   // User can input text in a field and click button or press enter to add typed task to tasks array
@@ -75,6 +87,8 @@ const Home = () => {
               onClick={() => {
                 // Delete all tasks by clearing tasks array
                 setTasks([]);
+                // Reset tasks in local storage
+                localStorage.setItem("tasks", "[]");
               }}
             >
               Clear {tasks.length} task{tasks.length > 1 && "s"}
